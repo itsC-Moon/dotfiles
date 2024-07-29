@@ -1,0 +1,44 @@
+#!/usr/bin/python3.11
+import shutil
+import os
+import sys
+
+# Function to move a file or directory
+def move(src, dst):
+    try:
+        shutil.move(src, dst)
+        print(f"Moved '{src}' to '{dst}'")
+    except Exception as e:
+        print(f"Error moving '{src}' to '{dst}': {e}")
+
+# Function to create a directory
+def create_directory(path):
+    try:
+        os.makedirs(path, exist_ok=True)
+        print(f"Created directory '{path}'")
+    except Exception as e:
+        print(f"Error creating directory '{path}': {e}")
+
+if (len(sys.argv) < 2):
+    print("usage: mstow <file>")
+    sys.exit(1)
+
+fileName = sys.argv[1]
+fileNamePath = os.path.abspath(fileName)
+dir = os.path.dirname(fileNamePath)
+if not os.path.exists(fileName):
+    print("file does not exist ")
+    sys.exit(1)
+
+home = os.getenv('HOME')
+if not home:
+    print("HOME environment variable not set")
+    sys.exit(1)
+
+dotfile = home + "/.dotfiles"
+user = "/home/" + (os.getenv('USER') or "")
+dir = dotfile + dir.removeprefix(user)
+
+create_directory(dir)
+move(fileNamePath, dir)
+
