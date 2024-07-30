@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -100,4 +107,54 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+####10108bleach10108####
+alias storage="bash /Users/hibenouk/bleach_42/check_space.bash"
+alias bleach="bash /Users/hibenouk/bleach_42/help.bash"
+alias unbleach="bash /Users/hibenouk/bleach_42/unbleach.bash"
+alias bdocker="bash /Users/hibenouk/bleach_42/init_docker.bash"
+alias bclean="bash /Users/hibenouk/bleach_42/cleaner.bash"
+alias bcleanfull="bash /Users/hibenouk/bleach_42/cleanAllAppsData.bash"
+####10108bleach10108####
+export PATH=$HOME/openssl/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/openssl/lib
+export LC_ALL="en_US.UTF-8"
+export LDFLAGS="-L /home/username/openssl/lib -Wl,-rpath,/home/username/openssl/lib"
+
+mkdir ~/goinfre/.vscode 2>/dev/null
+mkdir ~/goinfre/.rustup 2>/dev/null
+mkdir ~/goinfre/.npm 2>/dev/null
+mkdir ~/goinfre/lvim 2>/dev/null
+mkdir ~/goinfre/Google 2>/dev/null
+# Load Homebrew config script
+source $HOME/.brewconfig.zsh
+
+export PATH=/Users/hibenouk/.local/bin:$PATH
+export PATH=$PATH:/Users/hibenouk/.npm-global/bin
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+source /Users/hibenouk/.docker/init-zsh.sh || true # Added by Docker Desktop
+export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/lvim/mason/packages/jdtls/lombok.jar"
+# eval "$(starship init zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/Users/hibenouk/.brew/opt/libiconv/bin:/Users/hibenouk/.local/bin/bin:$PATH"
+export PATH="/Users/hibenouk/.php/bin/:$PATH"
+export PATH="/Users/hibenouk/Library/Python/3.11/bin:$PATH"
+
+export LDFLAGS="-L/Users/hibenouk/.brew/opt/libiconv/lib"
+export CPPFLAGS="-I/Users/hibenouk/.brew/opt/libiconv/include"
+
+alias m="make"
+alias mc="make clean"
+alias mre="make re"
+alias mfc="make fclean"
+alias so="source ~/.zshrc"
+alias ezsh="lvim ~/.zshrc"
+source <(fzf --zsh)

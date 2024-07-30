@@ -38,28 +38,17 @@
 		],
 		"description": "Log output to console"
 	},
-	"Class Header (Orthodox Canonical Form)": {
-		"prefix": "classheader",
+	"Orthodox Canonical": {
+		"prefix": "makeclass",
 		"body": [
-			"#ifndef ${TM_FILENAME_BASE/(.*)/${1:/downcase}/}_H",
-			"#define ${TM_FILENAME_BASE/(.*)/${1:/downcase}/}_H",
-			"",
-			"#include <iostream>",
-			"",
-			"class ${TM_FILENAME_BASE/(.*)/${1:/downcase}/}",
+			"class ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}",
 			"{",
-			"\tpublic:",
-			"\t\t${TM_FILENAME_BASE/(.*)/${1:/downcase}/}();",
-			"\t\t${TM_FILENAME_BASE/(.*)/${1:/downcase}/}(const ${TM_FILENAME_BASE/(.*)/${1:/downcase}/}& other);",
-			"\t\t${TM_FILENAME_BASE/(.*)/${1:/downcase}/}& operator=(const ${TM_FILENAME_BASE/(.*)/${1:/downcase}/}& other);",
-			"\t\t~${TM_FILENAME_BASE/(.*)/${1:/downcase}/}();",
-			"",
-			"\tprivate:",
-			"};",
-			"",
-			"#endif // ${TM_FILENAME_BASE/(.*)/${1:/downcase}/}_H"
+			"public:",
+			"\t${TM_FILENAME_BASE/(.*)/${1:/upcase}/}();",
+			"\t${TM_FILENAME_BASE/(.*)/${1:/upcase}/}(${TM_FILENAME_BASE/(.*)/${1:/upcase}/} &${TM_FILENAME_BASE/(.*)/${1:/uppcase}/});",
+			"};"
 		],
-		"description": "Create a class header in orthodox canonical form based on the file name."
+		"description": "Log output to console"
 	},
 	"vector": {
 		"prefix": "vec",

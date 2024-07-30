@@ -10,9 +10,8 @@ require("conf.user_cmd")
 require("conf.copilot")
 require("conf.ensure")
 require("conf.usercmd")
-require("conf.snippets")
--- luasnip.lua
-
-
-
+-- lvim.builtin.project.detection_methods = { "pattern" }
+-- lvim.builtin.project.patterns = {}
+-- lvim.builtin.project.patterns = { ".git", "Makefile", "package.json" }
+--
 
