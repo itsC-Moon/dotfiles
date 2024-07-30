@@ -1,0 +1,23 @@
+
+#!/bin/bash
+
+# Check for at least one argument
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 word1 word2 ..."
+  exit 1
+fi
+
+# Initialize the result string
+result=""
+
+# Iterate over the arguments, appending with "_" 
+for arg in "$@"; do
+  if [ -z "$result" ]; then
+    result="$arg"
+  else
+    result="${result}_${arg}"
+  fi
+done
+
+# Print the joined string
+touch $result
